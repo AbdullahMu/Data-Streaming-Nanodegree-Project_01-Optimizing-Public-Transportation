@@ -9,9 +9,12 @@ from confluent_kafka.avro import AvroProducer
 
 logger = logging.getLogger(__name__)
 
+<<<<<<< HEAD
 # Host URLs for preconfigured classroom workspace environment
 BROKER_URL = "PLAINTEXT://localhost:9092"
 SCHEMA_REGISTRY_URL = "http://localhost:8081"
+=======
+>>>>>>> 66b6fb7811184bf03190eab2faa499cfc8929971
 
 class Producer:
     """Defines and provides common functionality amongst Producers"""
@@ -41,12 +44,18 @@ class Producer:
         #
         #
         self.broker_properties = {
+<<<<<<< HEAD
             "bootstrap.servers": BROKER_URL,
             "schema.registry.ur": SCHEMA_REGISTRY_URL,
             "client.id": "producer",
 #             "linger.ms": 1000,
 #             "compression.type": "lz4",
 #             "batch.num.messages": 100,
+=======
+            # TODO
+            # TODO
+            # TODO
+>>>>>>> 66b6fb7811184bf03190eab2faa499cfc8929971
         }
 
         # If the topic does not already exist, try to create it
