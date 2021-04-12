@@ -71,7 +71,37 @@ class Producer:
         # the Kafka Broker.
         #
         #
-        logger.info("topic creation kafka integration incomplete - skipping")
+
+        # create client and check whether topic already exists
+        client = AdminClient({"bootstrap.servers": BROKER_URL})
+        topic_name = self.topic_name
+        topic_metadata = client.list_topics(timeout=5)
+        topic_exists = topic_name in set(t.topic for t in iter(topic_metadata.topics.values()))
+
+        # alternatively,
+        # topic_exists = topic_metadata.topics.get(topic_name) is not None
+
+        if topic_exists is True:
+            logger.info(f"Topic {topic_name} already exists")
+        else:
+            futures = client.create_topics(
+                [
+                    NewTopic(
+                    topic=topic_name,
+                    num_partitions=self.num_partitions,
+                    replication_factor=self.num_replicas
+                    )
+                ]
+            )
+
+        for topic, future in futures.items():
+            try:
+                future.result()
+                logger.info(f"Topic {topic_name} created")
+            except Exception as e:
+                logger.error(f"failed to create topic {topic_name}: {e}")
+                logger.info(f"topic {topic_name} creation kafka integration incomplete - skipping")
+
 
     def time_millis(self):
         return int(round(time.time() * 1000))
