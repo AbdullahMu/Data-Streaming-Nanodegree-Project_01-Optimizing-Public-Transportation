@@ -81,6 +81,7 @@ class Producer:
         # alternatively,
         # topic_exists = topic_metadata.topics.get(topic_name) is not None
 
+
         if topic_exists is True:
             logger.info(f"Topic {topic_name} already exists")
         else:
@@ -113,7 +114,12 @@ class Producer:
         # TODO: Write cleanup code for the Producer here
         #
         #
-        logger.info("producer close incomplete - skipping")
+
+        if self.producer is True:
+            self.producer.flush(timeout=5)
+            logger.info("producer closed")
+        else:
+            logger.info("producer close incomplete - skipping")
 
     def time_millis(self):
         """Use this function to get the key for Kafka Events"""
