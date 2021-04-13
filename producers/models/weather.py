@@ -37,7 +37,7 @@ class Weather(Producer):
         #
         #
         super().__init__(
-            f"weather.chicago", # TODO: Come up with a better topic name
+            "com.transitchicago.weather", # TODO: Come up with a better topic name
             key_schema=Weather.key_schema,
             value_schema=Weather.value_schema,
             num_partitions=2,
