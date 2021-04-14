@@ -39,7 +39,7 @@ out_topic = app.topic("com.transitchicago.station.table", partitions=1)
 # TODO: Define a Faust Table
 table = app.Table(
    "com.transitchicago.station.table",
-   default=int
+   default=int,
    partitions=1,
    changelog_topic=out_topic,
 )
