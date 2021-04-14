@@ -78,13 +78,13 @@ class Station(Producer):
 
                # the following values were filled according to the defined value
                # schema in "arrival_value.json"
-                "station_id" = self.station_id,
-                "train_id" = train.train_id,
-                "direction" = direction,
-                "line" = self.color,
-                "train_status" = train.status,
-                "prev_station_id" = prev_station_id,
-                "prev_direction" = prev_direction
+                    "station_id": self.station_id,
+                    "train_id": train.train_id,
+                    "direction": direction,
+                    "line": self.color,
+                    "train_status": train.status,
+                    "prev_station_id": prev_station_id,
+                    "prev_direction": prev_direction
                 },
             )
             logger.info(f"arrival kafka integration complete - train {train.train_id}, {direction} bound, arrived to station {self.station_id}")
