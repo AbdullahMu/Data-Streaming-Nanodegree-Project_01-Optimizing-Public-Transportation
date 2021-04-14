@@ -65,7 +65,7 @@ class KafkaConsumer:
         """Callback for when topic assignment takes place"""
         # TODO: If the topic is configured to use `offset_earliest` set the partition offset to
         # the beginning or earliest
-        logger.info("on_assign is incomplete - skipping")
+        # logger.info("on_assign is incomplete - skipping")
         for partition in partitions:
             #
             #
