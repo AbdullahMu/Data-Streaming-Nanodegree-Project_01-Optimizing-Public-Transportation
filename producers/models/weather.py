@@ -135,6 +135,6 @@ class Weather(Producer):
                 self.status.name,
             )
 
-            except Exception as e:
-                logger.error(f"failed to post message to kafka REST proxy: {e}")
-                logger.info("weather kafka proxy integration incomplete - skipping")
+        except Exception as e:
+            logger.error(f"failed to post message to kafka REST proxy: {e}")
+            logger.info("weather kafka proxy integration incomplete - skipping")

@@ -87,12 +87,11 @@ class Station(Producer):
                 "prev_direction" = prev_direction
                 },
             )
-
             logger.info(f"arrival kafka integration complete - train {train.train_id}, {direction} bound, arrived to station {self.station_id}")
 
-            except Exception as e:
-                logger.info(f"failed to produce message to kafka: {e}")
-                logger.info("arrival kafka integration incomplete - skipping")
+        except Exception as e:
+            logger.error(f"failed to produce message to kafka: {e}")
+            logger.info("arrival kafka integration incomplete - skipping")
 
 
     def __str__(self):

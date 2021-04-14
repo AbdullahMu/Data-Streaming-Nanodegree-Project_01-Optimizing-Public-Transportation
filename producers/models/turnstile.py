@@ -71,6 +71,6 @@ class Turnstile(Producer):
                             },
                         )
             logger.info(f"{num_entries} rider entires between {timestamp} and {timestamp+time_step} reported to kafka")
-            except Exception as e:
-                logger.error("failed to produce message to kafka: {e}")
-                logger.info("turnstile kafka integration incomplete - skipping")
+        except Exception as e:
+            logger.error("failed to produce message to kafka: {e}")
+            logger.info("turnstile kafka integration incomplete - skipping")
