@@ -39,13 +39,13 @@ class Station(Producer):
         #
 
 
-        topic_name = "com.transitchicago.station" # TODO: Come up with a better topic name
+        topic_name = "com.transitchicago.stations" # TODO: Come up with a better topic name
         super().__init__(
             topic_name,
             key_schema=Station.key_schema,
             value_schema=Station.value_schema, # TODO: Uncomment once schema is defined
             num_partitions=2, # TODO: num_partitions=???,
-            num_replicas=2, # TODO: num_replicas=???,
+            num_replicas=1, # TODO: num_replicas=???,
         )
 
         self.station_id = int(station_id)
@@ -81,8 +81,8 @@ class Station(Producer):
                     "station_id": self.station_id,
                     "train_id": train.train_id,
                     "direction": direction,
-                    "line": self.color,
-                    "train_status": train.status,
+                    "line": self.color.name,
+                    "train_status": train.status.name,
                     "prev_station_id": prev_station_id,
                     "prev_direction": prev_direction
                 },
