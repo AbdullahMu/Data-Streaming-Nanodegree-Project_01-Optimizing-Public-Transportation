@@ -58,7 +58,7 @@ def configure_connector():
                # TODO
                "incrementing.column.name": "stop_id",
                # TODO
-               "topic.prefix": "com.transitchicago.stations",
+               "topic.prefix": "stations.",
                # TODO
                "poll.interval.ms": "999999",
            }

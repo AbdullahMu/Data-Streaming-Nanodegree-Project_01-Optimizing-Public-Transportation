@@ -67,7 +67,7 @@ class Turnstile(Producer):
                             # TODO: Configure this
                             "station_id" : self.station.station_id,
                             "station_name" : self.station.name,
-                            "line" : self.station.color.name
+                            "line" : self.station.color
                             },
                         )
             logger.info(f"{num_entries} rider entires between {timestamp} and {timestamp+time_step} reported to kafka")

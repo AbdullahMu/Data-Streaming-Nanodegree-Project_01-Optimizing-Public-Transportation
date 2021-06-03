@@ -45,7 +45,6 @@ class Producer:
             "bootstrap.servers": BROKER_URL,
             "schema.registry.url": SCHEMA_REGISTRY_URL,
             "client.id": "producer",
-            "group.id": "model"
            # other optional configs
            # "linger.ms": 1000,
            # "compression.type": "lz4",
@@ -96,13 +95,13 @@ class Producer:
                 ]
             )
 
-            for topic, future in futures.items():
-                try:
-                    future.result()
-                    logger.info(f"Topic {topic_name} created")
-                except Exception as e:
-                    logger.error(f"failed to create topic {topic_name}: {e}")
-                    logger.info(f"topic {topic_name} creation kafka integration incomplete - skipping")
+        for topic, future in futures.items():
+            try:
+                future.result()
+                logger.info(f"Topic {topic_name} created")
+            except Exception as e:
+                logger.error(f"failed to create topic {topic_name}: {e}")
+                logger.info(f"topic {topic_name} creation kafka integration incomplete - skipping")
 
 
     def time_millis(self):

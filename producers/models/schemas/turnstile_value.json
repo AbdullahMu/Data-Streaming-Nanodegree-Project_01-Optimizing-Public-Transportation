@@ -1,19 +1,10 @@
 {
   "namespace": "com.udacity",
   "type": "record",
-  "name": "weather.value",
+  "name": "turnstile.value",
   "fields": [
-    {
-      "name": "temperature",
-      "type": "float"
-    },
-    {
-      "name": "status",
-      "type": {
-        "type": "enum",
-        "name": "weather_status",
-        "symbols": ["sunny", "partly_cloudy", "cloudy", "windy", "precipitation"]
-      }
-    }
+      {"name": "station_id", "type": "int"},
+      {"name": "station_name", "type": "string"},
+      {"name": "line", "type": "string"}
   ]
 }

@@ -22,7 +22,7 @@ class Weather:
         #
         try:
             process_message = message.value()
-            if process_message is not None:
+            if process_message is True:
                 self.temperature = process_message["temperature"]
                 self.status = process_message["status"]
                 logger.info("weather process_message is complete")
