@@ -58,7 +58,11 @@ def configure_connector():
                # TODO
                "incrementing.column.name": "stop_id",
                # TODO
+<<<<<<< HEAD
                "topic.prefix": "stations.",
+=======
+               "topic.prefix": "com.transitchicago.stations",
+>>>>>>> parent of c05ec44 (initial commit)
                # TODO
                "poll.interval.ms": "999999",
            }

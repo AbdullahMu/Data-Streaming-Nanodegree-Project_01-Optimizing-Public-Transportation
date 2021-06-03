@@ -42,7 +42,11 @@ class KafkaConsumer:
                 #
                 "bootstrap.servers": "PLAINTEXT://localhost:9092",
                 "group.id": topic_name_pattern,
+<<<<<<< HEAD
                 "default.topic.config": {"auto.offset.reset": "earliest"}
+=======
+                "default.topic.config": {"auto.offset.reset": "earliest" if offset_earliest is True else "latest"}
+>>>>>>> parent of c05ec44 (initial commit)
         }
 
         # TODO: Create the Consumer, using the appropriate type.
@@ -95,7 +99,11 @@ class KafkaConsumer:
         # is retrieved.
         #
         #
+<<<<<<< HEAD
          try:
+=======
+        try:
+>>>>>>> parent of c05ec44 (initial commit)
             message = self.consumer.poll(self.consume_timeout)
         except Exception as e:
             logger.error(f'messege consumption error: {e}')

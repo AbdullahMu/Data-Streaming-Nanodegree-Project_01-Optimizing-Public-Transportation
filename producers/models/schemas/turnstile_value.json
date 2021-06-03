@@ -1,10 +1,27 @@
 {
   "namespace": "com.udacity",
   "type": "record",
+<<<<<<< HEAD
   "name": "turnstile.value",
   "fields": [
       {"name": "station_id", "type": "int"},
       {"name": "station_name", "type": "string"},
       {"name": "line", "type": "string"}
+=======
+  "name": "weather.value",
+  "fields": [
+    {
+      "name": "temperature",
+      "type": "float"
+    },
+    {
+      "name": "status",
+      "type": {
+        "type": "enum",
+        "name": "weather_status",
+        "symbols": ["sunny", "partly_cloudy", "cloudy", "windy", "precipitation"]
+      }
+    }
+>>>>>>> parent of c05ec44 (initial commit)
   ]
 }
