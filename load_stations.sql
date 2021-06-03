@@ -23,3 +23,5 @@ COPY stations(
   blue,
   green
 ) FROM '/tmp/cta_stations.csv' DELIMITER ',' CSV HEADER;
+
+
