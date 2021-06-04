@@ -23,7 +23,7 @@ psql -d cta -c "CREATE TABLE stations (stop_id INTEGER PRIMARY KEY, direction_id
 
 psql -d cta -c "COPY stations(stop_id, direction_id,stop_name,station_name,station_descriptive_name,station_id,\"order\",red,blue,green) FROM '/home/workspace/startup/cta_stations.csv' DELIMITER ',' CSV HEADER;" > startup/startup.log 2>&1
 
-# Configure lesson 6 and 7 streams
+# Configure lesson 6 and 7 streams 
 kafka-topics --delete --zookeeper localhost:2181 --topic com.udacity.streams.users > startup/startup.log 2>&1
 kafka-topics --delete --zookeeper localhost:2181 --topic com.udacity.streams.purchases > startup/startup.log 2>&1
 kafka-topics --create --zookeeper localhost:2181 --topic com.udacity.streams.users --replication-factor 1 --partitions 10 > startup/startup.log 2>&1
@@ -33,7 +33,7 @@ kafka-topics --delete --zookeeper localhost:2181 --topic com.udacity.streams.cli
 kafka-topics --create --zookeeper localhost:2181 --topic com.udacity.streams.pages --replication-factor 1 --partitions 10 > startup/startup.log 2>&1
 kafka-topics --create --zookeeper localhost:2181 --topic com.udacity.streams.clickevents --replication-factor 1 --partitions 10 > startup/startup.log 2>&1
 
-# Configure the directory structure for KSQL
+# Configure the directory structure for KSQL 
 mkdir -p /var/lib/kafka-streams
 chmod g+rwx /var/lib/kafka-streams
 chgrp -R confluent /var/lib/kafka-streams
